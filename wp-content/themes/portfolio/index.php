@@ -41,34 +41,38 @@
                 <footer></footer>
             </article>
         </main>
-        <div class="sidebar columns large-3 small-12">
-            <aside class="sidebar">
-                <section class="widget">
-                    Esto será un widget
-                </section>
-            </aside>
-            <aside class="sidebar">
-                <section class="widget">
-                    Esto será otro widget
-                </section>
-            </aside>
-        </div>
+        <?php if (is_active_sidebar('sidebar-widgets')): ?>
+            <div class="sidebar columns large-3 small-12">
+                <aside class="sidebar">
+                    <?php dinamic_sidebar('sidebar-widgets'); ?>
+                </aside>
+            </div>
+
+        <?php endif; ?>
+        
     </div>
 
     <footer class="footer" id="page-footer" role="contentinfo">
-        <div class="footer-container row">
-            <div class="sidebar columns small-12">
-                <section class="widget">
-                    WIDGET 1
-                </section>
-                <section class="widget">
-                    WIDGET 2
-                </section>
-                <section class="widget">
-                    WIDGET 3
-                </section>
+        <?php if (is_active_sidebar('footer-widgets')): ?>
+            <div class="footer-container row">
+                <div class="sidebar columns small-12">
+                    <?php dinamic_sidebar('footer-widgets'); ?>
+                </div>
             </div>
+        <?php endif; ?> 
+            
+        <div class="sidebar columns small-12">
+            <section class="widget">
+                WIDGET 1
+            </section>
+            <section class="widget">
+                WIDGET 2
+            </section>
+            <section class="widget">
+                WIDGET 3
+            </section>
         </div>
+         
         <div class="site-info row">
             <div class="columns small-12">
                 <?php _e('Made with WordPress', 'domestika'); ?>

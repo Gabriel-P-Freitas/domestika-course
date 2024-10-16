@@ -38,15 +38,27 @@ function domestika_setup_widgets(){
     register_sidebar(
         [
             'id' => 'sidebar-widgets',
-            'name' => 'Sidebar Widgets',
-            'description' => 'Drag widgets to this sidebar container',
+            'name' => __('Sidebar Widgets'),
+            'description' => __('Drag widgets to this sidebar container'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget' => '</section id="" class="">',
             'before_title' => '<h4 class="widget-title h5">',
             'after_title' => '</h4>',
 
-    ]
-        );
+        ]
+    );
+
+    register_sidebar(
+        [
+            'id' => 'footer-widgets',
+            'name' => __('Footer Widgets'),
+            'description' => __('Drag widgets to this footer container'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget' => '</section>',
+            'before_title' => '<h4 class="widget-title h5">',
+            'after_title' => '</h4>',
+        ]
+    );
 };
 
 add_action('widgets_init', 'domestika_setup_widgets');
